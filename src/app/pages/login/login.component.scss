@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.bloglog{
+    height: 100%;
+    width:100%;
+    background-color: rgb(241, 237, 236);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.form-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 8% auto;
+    background: #fff;
+    padding:5px;
+}
+.title{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 35px;
+    margin: 35px auto;
+    position: inherit;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+}
+
+.inputgrp{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: 5s;
+}
+.inputfield{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.loginstatus{
+    color: red;
+    text-align: center;
+
+}
+.submitbtn{
+ 
+    color: white;
+    position: relative;
+    bottom: -20px;
+    width: 150px;
+    left: 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.error{
+    color: red;
+}
+p{
+    padding-top: 10px;
+    color: #777;
+    position:absolute;
+    text-align: center;
+    left: 10px;
+    bottom: -50px;
+    width: 100%;
+    font-size: 12px;
+}
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+#login{
+    left:50px;
+}

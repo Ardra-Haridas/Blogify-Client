@@ -1,0 +1,36 @@
+<div class="bloglog">
+    <div class="form-box">
+        <div class="title">
+            <h3 class="title-login">Sign In</h3>
+          </div>
+          <div class="loginstatus">
+            @if(!loginSuccess){
+              @if(errorMessage){
+                {{errorMessage}}
+              }
+            }
+          </div>
+      <form [formGroup]="loginForm" id="login" class="inputgrp">
+        <input type="email" class="inputfield" placeholder="Email Id" required formControlName="email">
+        @if (submitted) {
+          @if (loginForm.controls["email"].invalid && loginForm.controls["email"].dirty || loginForm.controls["email"].touched) {
+          <div class="error">
+            @if (loginForm.controls["email"].errors?.['required']) {This field is required.}
+            @else if (loginForm.controls["email"].errors?.['pattern']) {Invalid Pattern.}
+          </div>
+        }
+        }
+        <input type="password" class="inputfield" placeholder="Enter Password" required formControlName="password">
+       @if (submitted) {
+         @if (loginForm.controls["password"].invalid && loginForm.controls["password"].dirty || loginForm.controls["password"].touched) {
+          <div class="error"> 
+            @if (loginForm.controls["password"].errors?.['required']) {This field is required.}
+            @else if (loginForm.controls["password"].errors?.['maxlength']) {Maximum length must be < 6.}
+          </div>
+        }
+        }
+        <button (click)="onSubmit()" type="submit" class="submitbtn">Login</button>
+        <p>Dont have an account?<a [routerLink]="'/register'">Register</a></p>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+<div class="bloglog">
+    <div class="form-box">
+      <div class="title">
+        <h3 class="title-register">Sign Up</h3>
+      </div>
+      <form [formGroup]="registerForm"id="register" class="inputgrp">
+        <input type="text" class="inputfield" placeholder="username" required formControlName="username">
+        @if(submitted){
+        @if (registerForm.controls["username"].invalid && registerForm.controls["username"].dirty || registerForm.controls["username"].touched) {
+          <div class="error">
+            @if (registerForm.controls["username"].errors?.['required']) {This field is required.}
+            @else if (registerForm.controls["username"].errors?.['minlength']) {Minimum length must be >3.}
+            @else if (registerForm.controls["username"].errors?.["maxlength"]) {Maximum length must be < 15.}
+          </div>
+        }
+      }
+        <input type="email" class="inputfield" placeholder="Email Id" required formControlName="email">
+        @if (submitted) {
+        @if (registerForm.controls["email"].invalid && registerForm.controls["email"].dirty || registerForm.controls["email"].touched) {
+          <div class="error">
+            @if (registerForm.controls["email"].errors?.['required']) {This field is required.}
+            @else if (registerForm.controls["email"].errors?.['pattern']) {Invalid Pattern.}
+          </div>
+        }
+        }
+        <input type="password" class="inputfield" placeholder="Enter Password" required formControlName="password">
+        @if (submitted) {
+        @if (registerForm.controls["password"].invalid && registerForm.controls["password"].dirty || registerForm.controls["password"].touched) {
+          <div class="error"> 
+            @if (registerForm.controls["password"].errors?.['required']) {This field is required.}
+            @else if (registerForm.controls["password"].errors?.['pattern']) {Password does'nt Match!}
+            @else if (registerForm.controls["password"].errors?.['maxlength']) {Maximum length must be < 6.}
+          </div>
+        }
+      }
+        <input type="password" class="inputfield" placeholder="Confirm Password" required formControlName="confirmpassword">
+        @if (submitted) {
+        @if (registerForm.controls["confirmpassword"].invalid && registerForm.controls["confirmpassword"].dirty || registerForm.controls["confirmpassword"].touched){
+          <div class="error">
+            @if (registerForm.controls["confirmpassword"].errors?.['required']) {This field is required.}
+            @else if (registerForm.controls["confirmpassword"].value != registerForm.controls["confirmpassword"].value) {Password does'nt Match!}
+          </div>
+        }
+      }
+        <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions</span>
+        <button (click)="onSubmit()" type="submit" class="submitbtn">Register</button>
+      </form>
+    </div>
+  </div>
+  

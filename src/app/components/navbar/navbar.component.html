@@ -1,0 +1,20 @@
+<div class="nav">
+    <div class="container">
+        <div class="left">
+            <h2>Logo</h2>
+        </div>
+        <div class="center">
+            <h1>BlogApplication</h1>
+        </div>
+        <div class="right">
+            @if(username){
+                <p>{{username}}</p>
+                <span (click)="logout()">Logout</span>
+            }@else {
+                <span [routerLink]="'/login'" href="">Login</span>
+                <span  [routerLink]="'/register'" href="">Sign Up</span>
+            }
+        </div>
+    </div>
+   
+</div>
