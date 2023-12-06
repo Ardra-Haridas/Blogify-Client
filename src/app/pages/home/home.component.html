@@ -1,22 +1,81 @@
-<div class="blogcontainer">
+<div class="home">
+    <div class="blogcontainer">
     <div class="blog-box">
         <div class="blog">
-            <img class="profileicon" src="fb.png" alt="user1">
+            <img class="profileicon" src="../../../assets/user1.webp" alt="user1">
             <div class="blogdetails">
                 <h2 class="title">Blog Title 1</h2>
                 <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class="readmore">Read More..</a>
+                <a (click)="goToBlogDetails(null)" class="readmore">Read More...</a>
             </div>
+            <img class="blogimage" src="../../../assets/blog2.jpeg" alt="">
+        </div>
+    </div>
+    @for(blog of blogs;track blog.id){
+        <div class="blog-box">
+            <div class="blog">
+                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
+                <div class="blogdetails">
+                    <h2 class="title">{{blog.title}}</h2>
+                    <p class="content">{{blog.content}}</p>
+                    <a (click)="goToBlogDetails(blog.id)" class="readmore">Read More...</a>
+                </div>
+                <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
+            </div>
+        </div>
+    }
+
+    <div class="blog-box">
+        <div class="blog">
+            <img class="profileicon"  src="../../../assets/user3.jpeg" alt="user3">
+            <div class="blogdetails">
+                <h2 class="title">Blog Title 3</h2>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo amet culpa dolor. Et culpa, numquam tenetur aut voluptates nulla recusandae unde nihil veniam, perspiciatis, labore sed repellat eum. Doloribus, assumenda.
+                Et fugit, in ex aut molestias amet at fugiat libero aliquam iusto repellendus rem nulla? Cum ratione commodi suscipit ad id impedit fugit iste maxime quod, incidunt, earum vero excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus dolores repudiandae asperiores officia, error exercitationem sapiente. Ratione rem fugiat ipsam, nesciunt ipsa omnis, recusandae, earum architecto doloremque asperiores maxime?
+                Quae ipsam reprehenderit vel in! Nam quis sed molestias dolore autem laborum odit, est itaque consectetur nesciunt incidunt saepe id maxime possimus magni nostrum nihil officia distinctio fugiat in animi.
+                Deserunt culpa, inventore eum at pariatur tenetur, officia quaerat nostrum voluptate quia quae est magni soluta fugit dolores repudiandae error aliquam ratione ex cum. Cupiditate explicabo hic ut et quam!
+                Nam incidunt iste cupiditate eveniet blanditiis deserunt in inventore iure quae sapiente, quia officiis, tenetur esse error veniam repellat omnis libero repellendus. Earum pariatur adipisci, expedita molestiae provident illum aut.
+                Possimus, nostrum. Eligendi voluptates dolore quaerat voluptatum, cupiditate iure dolor dolorum incidunt nam eveniet, non, amet consequuntur? Pariatur totam deserunt, error, rem recusandae facilis modi placeat nisi asperiores quibusdam reiciendis.
+                Totam perspiciatis, quo odio velit assumenda nemo optio architecto voluptas aperiam aspernatur adipisci animi natus! Officia, vero voluptates. Molestiae fugiat perspiciatis voluptas voluptate aliquam amet, recusandae labore itaque nesciunt! Non!
+                In exercitationem praesentium ducimus aliquid, neque labore? Nesciunt magni, ab placeat explicabo perspiciatis modi esse aperiam laboriosam rerum rem debitis! Explicabo atque ad magni. Magni iste enim omnis sit totam.
+                Veniam ipsa ex placeat animi magnam, dolor dolorem beatae voluptate maxime incidunt totam pariatur laudantium, iste natus suscipit hic! Aperiam id perferendis esse cupiditate mollitia exercitationem necessitatibus provident velit molestiae.
+                Voluptatem neque deserunt minima quisquam sit quam officiis minus magni, alias ad eius velit, quo laborum nam enim laudantium eveniet, sapiente quaerat a quas ipsa. Magnam velit eaque accusantium hic!
+                Magnam ad saepe, libero quaerat doloribus, voluptatum explicabo fuga laudantium natus architecto dolorum. Reiciendis veniam eaque debitis a maiores velit. Illum natus soluta voluptate, pariatur asperiores culpa repellat in explicabo!
+                Illo cum praesentium tenetur repellat dolores vero nisi, ducimus, qui rem harum eligendi voluptas, modi aut eum minima libero quia voluptate quisquam. Esse quidem error numquam harum et, consectetur sint. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a (click)="goToBlogDetails(null)" class="readmore">Read More...</a>
+            </div>
+            <img class="blogimage" src="../../../assets/blog3.webp" alt="">
         </div>
     </div>
     <div class="blog-box">
         <div class="blog">
-            <img class="profileicon"  src="gp.png" alt="user2">
+            <img class="profileicon"  src="../../../assets/user4.webp" alt="user3">
             <div class="blogdetails">
-                <h2 class="title">Blog Title 2</h2>
-                <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class="readmore">Read More...</a>
+                <h2 class="title">Blog Title 4</h2>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo amet culpa dolor. Et culpa, numquam tenetur aut voluptates nulla recusandae unde nihil veniam, perspiciatis, labore sed repellat eum. Doloribus, assumenda.
+                Et fugit, in ex aut molestias amet at fugiat libero aliquam iusto repellendus rem nulla? Cum ratione commodi suscipit ad id impedit fugit iste maxime quod, incidunt, earum vero excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus dolores repudiandae asperiores officia, error exercitationem sapiente. Ratione rem fugiat ipsam, nesciunt ipsa omnis, recusandae, earum architecto doloremque asperiores maxime?
+                Quae ipsam reprehenderit vel in! Nam quis sed molestias dolore autem laborum odit, est itaque consectetur nesciunt incidunt saepe id maxime possimus magni nostrum nihil officia distinctio fugiat in animi.
+                Deserunt culpa, inventore eum at pariatur tenetur, officia quaerat nostrum voluptate quia quae est magni soluta fugit dolores repudiandae error aliquam ratione ex cum. Cupiditate explicabo hic ut et quam!
+                Nam incidunt iste cupiditate eveniet blanditiis deserunt in inventore iure quae sapiente, quia officiis, tenetur esse error veniam repellat omnis libero repellendus. Earum pariatur adipisci, expedita molestiae provident illum aut.
+                Possimus, nostrum. Eligendi voluptates dolore quaerat voluptatum, cupiditate iure dolor dolorum incidunt nam eveniet, non, amet consequuntur? Pariatur totam deserunt, error, rem recusandae facilis modi placeat nisi asperiores quibusdam reiciendis.
+                Totam perspiciatis, quo odio velit assumenda nemo optio architecto voluptas aperiam aspernatur adipisci animi natus! Officia, vero voluptates. Molestiae fugiat perspiciatis voluptas voluptate aliquam amet, recusandae labore itaque nesciunt! Non!
+                In exercitationem praesentium ducimus aliquid, neque labore? Nesciunt magni, ab placeat explicabo perspiciatis modi esse aperiam laboriosam rerum rem debitis! Explicabo atque ad magni. Magni iste enim omnis sit totam.
+                Veniam ipsa ex placeat animi magnam, dolor dolorem beatae voluptate maxime incidunt totam pariatur laudantium, iste natus suscipit hic! Aperiam id perferendis esse cupiditate mollitia exercitationem necessitatibus provident velit molestiae.
+                Voluptatem neque deserunt minima quisquam sit quam officiis minus magni, alias ad eius velit, quo laborum nam enim laudantium eveniet, sapiente quaerat a quas ipsa. Magnam velit eaque accusantium hic!
+                Magnam ad saepe, libero quaerat doloribus, voluptatum explicabo fuga laudantium natus architecto dolorum. Reiciendis veniam eaque debitis a maiores velit. Illum natus soluta voluptate, pariatur asperiores culpa repellat in explicabo!
+                Illo cum praesentium tenetur repellat dolores vero nisi, ducimus, qui rem harum eligendi voluptas, modi aut eum minima libero quia voluptate quisquam. Esse quidem error numquam harum et, consectetur sint. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a (click)="goToBlogDetails(null)" class="readmore">Read More...</a>
             </div>
+            <img class="blogimage" src="../../../assets/blog4.jpeg" alt="">
         </div>
     </div>
+</div>
+<div class="searchcont">
+    <div class="cont">
+<form action="search">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit">Go</button>
+</form>
+</div>
+</div>
 </div>
