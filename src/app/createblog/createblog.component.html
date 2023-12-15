@@ -1,0 +1,19 @@
+<div class="bg"><div class="createcontainer">
+    <div class="head">
+        <h2>Create a New Blog</h2>
+    </div>
+    <div class="blogstatus">
+        @if(blogCreationSuccess){
+            @if(errorMessage){
+                {{errorMessage}}
+            }
+        }
+    </div>
+    <form [formGroup]="blogForm" id="create" class="creategrp">
+    <input type="text"class="title" name="title" placeholder="Title" required formControlName="title">
+    <textarea type="text" class="content" name="content" placeholder="content" required formControlName="content"></textarea>
+    <input type="image" name="image" placeholder="image" required formControlName="image">
+    <button (click)="onCreate()" type="submit" class="subbut">Create</button>
+    </form>
+</div>
+</div>

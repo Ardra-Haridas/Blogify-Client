@@ -33,13 +33,24 @@
     border-radius: 50%;
     margin-right: 10px;
     object-fit: cover;
+    cursor: pointer;
 }
 .blogdetails{
     flex: 1;
+  
 }
-.title{
+.blogInfo{
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+.blogInfo span:first-child{
     font-size: 1.5em;
-    margin-bottom: 10px;
+    font-weight: bold;
+}
+.date{
+    font-size: small;
+    color: #555;
 }
 .content{
     white-space:inherit; 
@@ -60,41 +71,106 @@
     width: 200px;
     height: 200px;
 }
-.searchcont{
-    max-width: 500px;
-    padding-right: 20px;
-    flex: 1;
-    background-color: white;
+
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: rgb(237, 193, 156);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-@media screen {
-    .searchcont .cont{
-        float: none;
-      
-        height: 40px;
-    }
-    .searchcont input[type=text] .searchcont .cont{
-        float: none;
-        display: block;
-        text-align: left;
-        height: 40px;
-        
-        margin: 0;
-        padding: 14px;
-    }
-    .searchcont input[type=text]{
-        font-size: large;
-        border: 1px solid #ccc;
-        width: 400px;
-        height: 40px;
-    }
-    .searchcont button[type=submit]{
-        font-size: large;
-        color: #555;
-        padding-right: 20px;
-        border: 1px solid #ccc;
-        width: 85px;
-        height: 40px;
-    }
+
+.searchbar input {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.searchbar button {
+    width: 25%;
+    padding: 8px;
+    border: 1px solid rgb(198, 101, 101);
+    background-color: rgb(218, 122, 122);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.sidebuttons {
+    display: flex;
+    flex-direction: column;
+}
+.button {
+    width: 85%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color:hsl(39, 91%, 48%);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.createbutton {
+    margin-left: 10px;
+    width: 85%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color:hsl(39, 32%, 91%);
+    color: rgb(107, 105, 105);
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #555;
+}
+.createbutton:hover {
+    background-color: #7f7a7a;
+}
+.box{
+    border:1px solid #ddd;
+    width: 280px;
+    height: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.box a{
+    color: inherit;
+    width: 100%;
+    height: 95%;
+   display: flex;
+
+   justify-content: center;
+}
+.box img{
+    width: 100%;
+    height: 95%;
+}
+
+
+.head h3{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+    position: inherit;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+   
 }

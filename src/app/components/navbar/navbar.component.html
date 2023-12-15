@@ -8,12 +8,17 @@
         </div>
         <div class="right">
             @if(username){
-                <p>{{username}}</p>
+                <img class="profileicon"  src="../../../assets/user1.webp" alt="user2">
+           
+
+                <p (click)="profileDetails(userId)">{{username}}</p>
+
                 <span (click)="logout()">Logout</span>
             }@else {
                 <span [routerLink]="'/login'" href="">Login</span>
                 <span  [routerLink]="'/register'" href="">Sign Up</span>
             }
+        
         </div>
     </div>
    

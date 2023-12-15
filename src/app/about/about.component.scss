@@ -1,0 +1,42 @@
+.bg{
+    background :url("../../assets/top-view-ring-binder.jpg");
+    background-size:cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.aboutcontainer{
+    height: 100%;
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.title{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 30px;
+    margin: 35px auto;
+    margin-top: 10px;
+    position: inherit;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+}
+.aboutcontent{
+    margin-bottom:20px;
+}
+.footer{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}

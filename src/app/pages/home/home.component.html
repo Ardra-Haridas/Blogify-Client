@@ -11,20 +11,6 @@
             <img class="blogimage" src="../../../assets/blog2.jpeg" alt="">
         </div>
     </div>
-    @for(blog of blogs;track blog.id){
-        <div class="blog-box">
-            <div class="blog">
-                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
-                <div class="blogdetails">
-                    <h2 class="title">{{blog.title}}</h2>
-                    <p class="content">{{blog.content}}</p>
-                    <a (click)="goToBlogDetails(blog.id)" class="readmore">Read More...</a>
-                </div>
-                <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
-            </div>
-        </div>
-    }
-
     <div class="blog-box">
         <div class="blog">
             <img class="profileicon"  src="../../../assets/user3.jpeg" alt="user3">
@@ -44,7 +30,8 @@
                 Illo cum praesentium tenetur repellat dolores vero nisi, ducimus, qui rem harum eligendi voluptas, modi aut eum minima libero quia voluptate quisquam. Esse quidem error numquam harum et, consectetur sint. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <a (click)="goToBlogDetails(null)" class="readmore">Read More...</a>
             </div>
-            <img class="blogimage" src="../../../assets/blog3.webp" alt="">
+            <img class="blogimage" src="../../../assets/blog6.webp" alt="">
+
         </div>
     </div>
     <div class="blog-box">
@@ -69,13 +56,41 @@
             <img class="blogimage" src="../../../assets/blog4.jpeg" alt="">
         </div>
     </div>
+    @for(blog of blogs;track blog.id){
+        <div class="blog-box">
+            <div class="blog">
+                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
+                <div class="blogdetails">
+                    <div class="blogInfo">
+                    <span>{{blog.title}}</span>
+                    <span class="date">{{blog.creationdate}}</span>
+                </div>
+                    <p class="content">{{blog.content}}</p>
+                    <a (click)="goToBlogDetails(blog.id)" class="readmore">Read More...</a>
+                </div>
+                <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
+            </div>
+        </div>
+    }
 </div>
-<div class="searchcont">
-    <div class="cont">
-<form action="search">
-    <input type="text" placeholder="Search.." name="search">
+<div class="sidebar">
+    <div class="searchbar">
+    <input type="text" placeholder="Search..." name="search">
     <button type="submit">Go</button>
-</form>
+</div>
+<div class="sidebuttons">
+    <a [routerLink]="'/createblog'" class="createbutton">Create</a>
+    <a [routerLink]="'/about'" class="button">About Us</a>
+    <a [routerLink]="'/contact'" class="button">Contact Us</a>
+ 
+</div>
+<div class="box">
+    <div class="head">
+<h3>Communities</h3>
+    </div>
+<a [routerLink]="'/community'">
+  <img src="../../../assets/community4.webp" name="Food Community">
+</a>
 </div>
 </div>
 </div>

@@ -7,5 +7,28 @@ export interface Blog {
     lastmodifieddate:string,
     status:string|null,
     viewcount:number|null,
-    image:string|null
+    image:string|null,
+    likes:number
+}
+export interface Community{
+    communityid:number,
+    communityname:string,
+    membercount:number|null,
+    created_at:string,
+    modified_at:string
+
+}
+export interface User{
+    id:number,
+    name:string,
+    bio:string|null,
+    profilepicture:string|null
+}
+export interface Comment{
+    userid:number,
+    postid:number,
+    username:string,
+    content:string,
+    creationdate:Date,
+    lastmodifieddate:Date
 }

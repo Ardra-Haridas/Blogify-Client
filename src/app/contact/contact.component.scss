@@ -1,0 +1,33 @@
+.contactcontainer{
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px  rgba(0,0,0,0.1);
+}
+.title{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 30px;
+    margin: 35px auto;
+    margin-top: 10px;
+    position: inherit;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+}
+.contactcontent{
+    margin-bottom: 20px;
+}
+.contactcontent ul{
+    list-style-type: none;
+    padding: 0;
+}
+.contactcontent li{
+    margin-bottom: 10px;
+}

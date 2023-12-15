@@ -1,1 +1,37 @@
-<p>blog works!</p>
+<div  class="back">
+    @if (blogDetails) {
+<div class="blogbox">
+    <div class="blog">
+        <div class="top">
+            <div class="left">
+                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
+                <div class="blogdetails">
+                    <div class="blogInfo">
+                        <span>{{blogDetails.title}}</span>
+                    <span class="date">{{blogDetails.creationdate}}</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="right">
+                <div class="cursor"  (click)="likepost()">
+                    <i  class="fa-solid fa-heart" [ngClass]="likeFlag ? 'red' : ''" ></i>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
+            <p class="para">{{blogDetails.content}}</p>
+            <div class="flex">
+                <div class="cursor2">
+                    <i class="fa fa-commenting-o"></i>
+                    <span class="ml-1">Comment</span>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+</div>

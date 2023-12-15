@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-
+  
+  
   constructor(private http:HttpClient) {}
     postReturn(apiUrl: string, requestBody:any | null, options?:any ){
-      return this.http.post(apiUrl,requestBody);
+      return this.http.post(apiUrl,requestBody,options);
     }
     getReturn(apiUrl: string,options?:any){
       return this.http.get(apiUrl);
     }
-
    
 }

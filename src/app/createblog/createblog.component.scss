@@ -1,0 +1,64 @@
+.bg{
+    background :url("../../assets/background.jpg");
+    background-size:cover;
+    background-repeat: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.createcontainer{
+    width:600px;
+    height: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.head{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 30px;
+    margin: 35px auto;
+    margin-top: 10px;
+    position: inherit;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+}
+.blogstatus{
+    margin-bottom: 10px;
+    color: #c0392b;
+}
+.creategrp{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.content{
+    margin-bottom: 15px;
+    padding: 10px;
+    height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.subbut{
+    padding: 10px;
+    background-color: rgb(233, 170, 54);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.subbut:hover{
+    background-color: rgb(113, 82, 23);
+}
