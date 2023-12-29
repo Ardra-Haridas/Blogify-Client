@@ -1,42 +1,67 @@
-.bg{
-    background :url("../../assets/top-view-ring-binder.jpg");
-    background-size:cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.5;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans',sans-serif;
+    box-sizing: border-box;
+}
+.about{
+    width: 100%;
+    height: 850px;
+    position: relative;
+
+}
+.image-container{
+    width: 100%;
+    background-image: url('../../assets/flat-lay-desk-with-apple-keyboard.jpg');
+    background-size: cover;
+    opacity: 0.6;
+    height: 100%;
+
 }
 
-.aboutcontainer{
-    height: 100%;
-    width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.abouttext{
+   
+    width: 950px;
+ 
+   
 }
-.title{
-    color: white;
+.main{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 30px;
-    margin: 35px auto;
-    margin-top: 10px;
-    position: inherit;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
-    text-align: center;
-    background: linear-gradient(to right,#ff105f,#ffad06);
+    margin-left: 20px;
+    justify-content: space-around;
 }
-.aboutcontent{
-    margin-bottom:20px;
+.abouttext h1{
+    color: rgb(227, 13, 13);
+    font-size: 80px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+   
 }
-.footer{
-    background-color: #333;
+.abouttext p{
+    color:black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    
+}
+.button{
+    background: #f9004d;
     color: white;
-    text-align: center;
-    padding: 1em;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+}
+.button:hover{
+    background: transparent;
+    border: 2px solid #f9004d;
+    cursor: pointer;
 }

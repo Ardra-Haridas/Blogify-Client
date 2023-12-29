@@ -1,5 +1,6 @@
 @if(users){
-<div class="box1"><div class="profilecontainer">
+<div class="box1">
+    <div class="profilecontainer">
     <img class="profilepic" src="../../assets/user1.webp" alt="">
     <h2>{{users.name}}</h2>
     <p>Email:{{users.email}}</p>
@@ -8,34 +9,24 @@
 
 </div>
 }
-@for (item of blogDetails; track $index) {
-    @if(item){
-        <div class="blogbox">
-            <div class="blog">
-                <div class="top">
-                    <div class="left">
-                        <div class="blogdetails">
-                            <div class="blogInfo">
-                                <span>{{item.title}}</span>
-                            <span class="date">{{item.creationdate}}</span>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="content">
-                    <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
-                    <p class="para">{{item.content}}</p>
-                    <div class="flex">
-                        <div class="cursor2">
-                            <i class="fa fa-commenting-o"></i>
-                            <span class="ml-1">Comment</span>
-                        </div>
-                
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
+<div class="profile">
+    <div class="posts">
 
-}
+        @for (item of blogDetails; track $index) {
+            @if(item){
+                <app-blogdetails [blogDetails]="item"></app-blogdetails>
+            }
+        
+        }
+    </div>
+<div class="sidebar">
+    <div class="content">
+        <h2>Publish your passions, your way</h2>
+        <p>Create a unique and beautiful blog easily.</p>
+    </div>
+<div class="sidebuttons">
+    <a [routerLink]="'/createblog'" class="createbutton">Create</a>
+</div>
+
+</div>
+</div>

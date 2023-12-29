@@ -1,0 +1,43 @@
+.comment-box {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.commentsection {
+  margin-top: 20px;
+}
+
+.comment {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.newcomment {
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #bd0887;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bd0887;
+}

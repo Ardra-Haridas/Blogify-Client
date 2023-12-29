@@ -6,11 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { error, log } from 'console';
 import { Blog } from '../../models/data-types';;
 import { HttpHeaders } from '@angular/common/http';
+import { CommentComponent } from './comment/comment.component';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,CommentComponent],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss'
 })
@@ -22,6 +23,7 @@ export class BlogComponent implements OnInit{
   user:string|any
   userId: number|any;
   likeFlag:boolean|any = false
+showComments: boolean | any;
   constructor(private api:ApiService,private activatedRoute: ActivatedRoute){}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
@@ -74,5 +76,14 @@ export class BlogComponent implements OnInit{
     }
     
   }
+ toggleComments():void{
+  this.showComments=!this.showComments;
+  if(this.showComments){
+    const commentSection=document.querySelector('.commentSection');
+    if(commentSection){
+      commentSection.scrollIntoView({behavior:'smooth'})
+    }
+  }
+ }
 
 }

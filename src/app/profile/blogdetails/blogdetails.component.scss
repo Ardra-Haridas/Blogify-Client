@@ -1,0 +1,121 @@
+.blogbox{
+    justify-content: center;
+    position: inherit;
+    margin-right: 20px;
+    border-radius: 20px;
+    margin-left: 20px;
+    min-height: 500px;
+    width: 1300px;
+    background-color: rgb(246, 246, 246);
+}
+.blog{
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+.top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.left{
+    display: flex;
+    align-items: center;
+}
+.profileicon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    padding-left: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.blogdetails{
+    display: flex;
+    margin: 0;
+    align-items: center;
+}
+.blogInfo{
+    display: flex;
+    flex-direction: column;
+
+}
+.date{
+    font-size: small;
+    color: #555;
+}
+.blogInfo span:first-child{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.content{
+    white-space:inherit; 
+    width: 95%;
+    overflow: hidden;
+    font-size: large;
+    color:#555;
+    margin-bottom: 10px;
+    text-overflow: ellipsis
+}
+.blogimage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    object-fit: cover;
+    height: 400px;
+}
+
+
+.flex{
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgb(246, 246, 246);
+    font-size: 20px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+
+}
+.commenting-o{
+    margin-left: 10px;
+}
+.shadow-none{
+    box-shadow: none;
+}
+.name{
+    color: #007bff;
+}
+.cursor:hover{
+    color: red;
+}
+.cursor{
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.50em;
+    padding-right: 40px;
+}
+.cursor i{
+    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
+
+}
+.cursor2:hover{
+}
+.cursor2{
+    display: flex;
+    width: 100%;
+    align-items: start;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.red{
+    color: red;
+}

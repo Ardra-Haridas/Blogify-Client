@@ -36,7 +36,9 @@
     </div>
     <div class="blog-box">
         <div class="blog">
+            <a [routerLink]="'/profile'">
             <img class="profileicon"  src="../../../assets/user4.webp" alt="user3">
+        </a>
             <div class="blogdetails">
                 <h2 class="title">Blog Title 4</h2>
                 <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo amet culpa dolor. Et culpa, numquam tenetur aut voluptates nulla recusandae unde nihil veniam, perspiciatis, labore sed repellat eum. Doloribus, assumenda.
@@ -59,7 +61,8 @@
     @for(blog of blogs;track blog.id){
         <div class="blog-box">
             <div class="blog">
-                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
+                <img class="profileicon" [routerLink]="'/profile/'+blog.userid"  src="../../../assets/user2.jpeg" alt="user2">
+
                 <div class="blogdetails">
                     <div class="blogInfo">
                     <span>{{blog.title}}</span>

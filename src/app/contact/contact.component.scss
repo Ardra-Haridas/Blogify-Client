@@ -1,33 +1,57 @@
-.contactcontainer{
-    width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px  rgba(0,0,0,0.1);
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans',sans-serif;
+    box-sizing: border-box;
 }
-.title{
-    color: white;
+.about{
+    width: 100%;
+    height: 850px;
+    position: relative;
+
+}
+.about img{
+    height: auto;
+    width: 520px;
+}
+
+.abouttext{
+   
+    width: 950px;
+ 
+   
+}
+.main{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 30px;
-    margin: 35px auto;
-    margin-top: 10px;
-    position: inherit;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
-    text-align: center;
-    background: linear-gradient(to right,#ff105f,#ffad06);
+    margin-left: 20px;
+    justify-content: space-around;
 }
-.contactcontent{
+.abouttext h1{
+    color: rgb(227, 13, 13);
+    font-size: 80px;
+    text-transform: capitalize;
     margin-bottom: 20px;
+   
 }
-.contactcontent ul{
-    list-style-type: none;
-    padding: 0;
+.abouttext p{
+    color:black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    
 }
-.contactcontent li{
-    margin-bottom: 10px;
+
+.abouttext li{
+    color:black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    
 }
