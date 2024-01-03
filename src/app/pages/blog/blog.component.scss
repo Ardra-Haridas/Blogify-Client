@@ -1,6 +1,6 @@
 .back{
     background-color: rgb(243, 223, 186);
-    height: 1000px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,13 +81,11 @@
 
 
 .flex{
-    justify-content: center;
-    border-radius: 20px;
+   
+    
     background-color: rgb(246, 246, 246);
     font-size: 20px;
     display: flex;
-    padding: 20px;
-    justify-content: space-around;
 
 }
 .commenting-o{
@@ -117,12 +115,16 @@
 }
 .cursor2{
     display: flex;
-    width: 100%;
-    align-items: start;
-    margin-left: 10px;
+    width: 30%;
     cursor: pointer;
 }
 
 .red{
     color: red;
 }
+app-comment{
+    width: 95%;
+
+}
+
+ 

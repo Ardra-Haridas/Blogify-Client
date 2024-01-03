@@ -1,32 +1,35 @@
 .comment-box {
-  width: 80%;
-  margin: 20px auto;
+  width: 100%;
   border: 1px solid #ddd;
-  padding: 20px;
   border-radius: 8px;
 }
 
 .commentsection {
-  margin-top: 20px;
 }
 
 .comment {
   background-color: #f0f0f0;
-  padding: 10px;
-  margin-bottom: 5px;
+}
+.comment-item {
+  margin-bottom: 10px;
 }
 
-.username {
+.comment-user {
   font-weight: bold;
 }
+
+.comment-content {
+  margin-left: 10px;
+  color: #333; 
+}
+
 
 .newcomment {
   margin-top: 20px;
 }
 
 textarea {
-  width: 100%;
-  padding: 10px;
+  width: 80%;
   margin-bottom: 10px;
 }
 
@@ -40,4 +43,19 @@ button {
 
 button:hover {
   background-color: #bd0887;
+}
+.com{
+  margin-bottom: 10px;
+  position: relative;
+}
+.com textarea {
+  width: 80%;
+  margin-bottom: 10px;
+} 
+.com i.fa-solid.fa-trash{
+  position: absolute;
+  
+  right: 10px;
+
+cursor: pointer;
 }

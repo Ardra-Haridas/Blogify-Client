@@ -14,5 +14,9 @@ export class ApiService {
     getReturn(apiUrl: string,options?:any){
       return this.http.get(apiUrl);
     }
+
+    deleteReturn(apiUrl:string,options?:any){
+      return this.http.delete(apiUrl);
+    }
    
 }

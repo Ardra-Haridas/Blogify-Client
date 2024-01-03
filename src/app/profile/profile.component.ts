@@ -41,8 +41,12 @@ ngOnInit(): void {
   );
 }
 fetchUserBlogPost() {
+  if(typeof localStorage !== "undefined" && localStorage.getItem("user")){
   this.user=localStorage.getItem("user")
     this.userid=JSON.parse(this.user).id;
+  }else{
+    this.userid=null
+  }
   if (this.users && this.users.id) {
     this.api.getReturn(`${environment.BASE_API_URL}/auth/${this.users.id}/blogposts`).subscribe(
       (blogpost) => {

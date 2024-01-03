@@ -25,6 +25,7 @@ commentCreationSuccess: boolean | any;
 errorMessage:string |any;
   user!: string | null;
   userId: any;
+commentid: number|any;
 constructor(private api:ApiService,private router:Router,private fb:FormBuilder){
 }
 ngOnInit(): void {
@@ -62,5 +63,28 @@ this.api.postReturn(`${environment.BASE_API_URL}/comment/createComment`,userData
   console.error('Error creating comment:',error);
   this.errorMessage='Failed to create comment.Please try again..';
 })
+  }
+
+  deleteComment(commentid:number){
+    this.api.deleteReturn(`${environment.BASE_API_URL}/comment/deleteComment/${this.commentid}`).subscribe(
+      (data)=>{
+        console.log('Comment deleted successfully',data);
+        this.loadComments();
+      },
+      (error)=>{
+        console.error('Error deleting comment',error);
+      }
+    )
+  }
+  loadComments():void {
+    this.api.getReturn(`${environment.BASE_API_URL}/comment/commentsByPostId/${this.postid}`).subscribe(
+      (data:any)=>{
+        this.comment=data;
+        console.log(this.comments);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 }

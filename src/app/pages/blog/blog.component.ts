@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit{
   user:string|any
   userId: number|any;
   likeFlag:boolean|any = false
-showComments: boolean | any;
+showComments: boolean = false;
   constructor(private api:ApiService,private activatedRoute: ActivatedRoute){}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
@@ -78,12 +78,6 @@ showComments: boolean | any;
   }
  toggleComments():void{
   this.showComments=!this.showComments;
-  if(this.showComments){
-    const commentSection=document.querySelector('.commentSection');
-    if(commentSection){
-      commentSection.scrollIntoView({behavior:'smooth'})
-    }
-  }
  }
-
+ 
 }

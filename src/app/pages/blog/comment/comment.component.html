@@ -1,8 +1,10 @@
 <div class="comment-box"><div class="commentsection">
         @for(comment of comments;track comment.id){
-            <div>
-                {{comment.user.name}}:{{comment.content}}
-            </div>
+            <div class="comment-item">
+                <span class="comment-user">{{comment.user.name}}:</span>
+                <span class="comment-content">{{comment.content}}</span>
+                <i class="fa-solid fa-trash"></i>
+              </div>
         }
    <div class="newcomment">
     <form [formGroup]="commentForm">

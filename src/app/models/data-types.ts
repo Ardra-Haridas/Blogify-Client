@@ -25,6 +25,7 @@ export interface User{
     profilepicture:string|null
 }
 export interface Comment{
+    commentid:number,
     userid:number,
     postid:number,
     username:string,

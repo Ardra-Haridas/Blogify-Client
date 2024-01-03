@@ -12,11 +12,16 @@
                     </div>
                     
                 </div>
-                <div class="right">
-                    <div class="cursor"  (click)="likepost()">
-                        <i  class="fa-solid fa-heart" [ngClass]="likeFlag ? 'red' : ''" ></i>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    <span>Edit</span>
+                    <span (click)="deleteBlogpost()">Delete</span>
                     </div>
-                </div>
+                  </div>
+                
             </div>
             <div class="content">
                 <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
@@ -26,6 +31,12 @@
                         <i class="fa fa-commenting-o"></i>
                         <span class="ml-1">Comment</span>
                     </div>
+                    <div class="right">
+                        <div class="cursor"  (click)="likepost()">
+                            <i  class="fa-solid fa-heart" [ngClass]="likeFlag ? 'red' : ''" ></i>
+                        </div>
+                    </div>
+                      
             
                 </div>
             </div>

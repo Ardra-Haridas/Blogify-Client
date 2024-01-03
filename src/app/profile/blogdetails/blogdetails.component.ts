@@ -5,6 +5,7 @@ import { ApiService } from '../../api.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 import { HttpHeaders } from '@angular/common/http';
+import { error } from 'console';
 
 @Component({
   selector: 'app-blogdetails',
@@ -14,6 +15,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrl: './blogdetails.component.scss'
 })
 export class BlogComponent implements OnInit{
+
   blogId:number|any
   @Input() blogDetails:Blog|any
   
@@ -72,5 +74,16 @@ export class BlogComponent implements OnInit{
     }
     
   }
+  deleteBlogpost():void {
+   this.api.deleteReturn(`${environment.BASE_API_URL}/post/${this.blogId}`).subscribe(
+    (data)=>{
+      console.log('deleted Post Successfully',data)
+    },
+    (error)=>{
+      console.log('error deleting post',error)
+    }
+   )
+
+    }
 
 }
