@@ -1,10 +1,23 @@
-<div class="comment-box"><div class="commentsection">
+<div class="comment-session">
+    <div class="comment-list">
         @for(comment of comments;track comment.id){
             <div class="comment-item">
-                <span class="comment-user">{{comment.user.name}}:</span>
+                <span class="comment-user">{{comment.name}}:</span>
                 <span class="comment-content">{{comment.content}}</span>
-                <i class="fa-solid fa-trash"></i>
+                <div class="cursor"  (click)="likeComment(comment.commentid)">
+                            <i  class="fa-solid fa-heart" [ngClass]="comment.isLiked ? 'red' : ''" ></i>
+                        </div>
+                        <div class="reply" (click)="replycomment()">
+                        <i class="fa-solid fa-reply"></i>
+                    </div >
+                    <div class="delete" (click)="deletecomment()">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="edit" (click)="editcomment()">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
               </div>
+              
         }
    <div class="newcomment">
     <form [formGroup]="commentForm">

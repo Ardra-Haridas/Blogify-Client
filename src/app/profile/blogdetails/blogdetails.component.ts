@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Blog } from '../../models/data-types';
 import { ApiService } from '../../api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 import { HttpHeaders } from '@angular/common/http';
 import { error } from 'console';
@@ -10,7 +10,7 @@ import { error } from 'console';
 @Component({
   selector: 'app-blogdetails',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './blogdetails.component.html',
   styleUrl: './blogdetails.component.scss'
 })
@@ -24,7 +24,7 @@ export class BlogComponent implements OnInit{
   user:string|any
   userId: number|any;
   likeFlag:boolean|any = false
-  constructor(private api:ApiService){}
+  constructor(private api:ApiService,private router:Router){}
   ngOnInit(): void {
     this.blogId=this.blogDetails.id
     this.api.getReturn(`${environment.BASE_API_URL}/post/findbyId/${this.blogId}`).subscribe((data)=>{
@@ -49,7 +49,8 @@ export class BlogComponent implements OnInit{
     this.user=localStorage.getItem("user")
     this.userId=JSON.parse(this.user).id;
     if(!this.likeFlag){
-      this.api.postReturn(`${environment.BASE_API_URL}/like/likePost/${this.blogId}/${this.userId}` ,null).subscribe(
+      const headers=new HttpHeaders().set("ResponseType","text")
+      this.api.postReturn(`${environment.BASE_API_URL}/like/likePost/${this.blogId}/${this.userId}` ,null,{headers}).subscribe(
         (response)=>{
           this.blogDetails.likes++;
           this.likeFlag = true
@@ -75,7 +76,9 @@ export class BlogComponent implements OnInit{
     
   }
   deleteBlogpost():void {
-   this.api.deleteReturn(`${environment.BASE_API_URL}/post/${this.blogId}`).subscribe(
+    const shouldDelete=window.confirm('Are you sure you want to delete this post?');
+    if(shouldDelete){
+   this.api.deleteReturn(`${environment.BASE_API_URL}/post/delete/${this.blogId}`).subscribe(
     (data)=>{
       console.log('deleted Post Successfully',data)
     },
@@ -85,5 +88,9 @@ export class BlogComponent implements OnInit{
    )
 
     }
+  }
+  editBlogpost():void{
+    this.router.navigate([`/editblog/${this.blogDetails.id}`])
 
+  }
 }

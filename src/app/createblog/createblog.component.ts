@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../environments/environment.development';
 
 @Component({
@@ -18,15 +18,29 @@ export class CreateblogComponent implements OnInit {
   blogForm:FormGroup | any;
   blogCreationSuccess: boolean | any;
   errorMessage:string |any;
+  blogId: any;
 
-  constructor(private api:ApiService,private router:Router,private fb:FormBuilder){}
+  constructor(private api:ApiService,private activatedRoute:ActivatedRoute,private router:Router,private fb:FormBuilder){}
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(s => {
+      this.blogId=s["blogId"]
+    });
   this.blogForm=this.fb.group({
     title:['',Validators.required],
     content:['',Validators.required],
     image:['',Validators.required]
   });
+  if(this.blogId!=null){
+    this.api.getReturn(`${environment.BASE_API_URL}/post/findbyId/${this.blogId}`).subscribe((data:any)=>{
+      console.log(data);  
+      this.blogForm=this.fb.group({
+        title:[data.title,Validators.required],
+        content:[data.content,Validators.required],
+        image:['',Validators.required]
+      });        
+    })
+  }
   }
   onCreate() {
     

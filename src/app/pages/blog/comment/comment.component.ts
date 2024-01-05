@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment.development';
 import { error } from 'console';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
+import { response } from 'express';
 
 @Component({
   selector: 'app-comment',
@@ -15,15 +16,16 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrl: './comment.component.scss'
 })
 export class CommentComponent implements OnInit{
+
 comment: any;
 showcomments: boolean=false;
-comments:Comment[] | any;
+@Input() comments:Comment|any
 newComment:string='';
   @Input() postid: number|any;
 commentForm: FormGroup | any;
 commentCreationSuccess: boolean | any;
 errorMessage:string |any;
-  user!: string | null;
+  user: string | any;
   userId: any;
 commentid: number|any;
 constructor(private api:ApiService,private router:Router,private fb:FormBuilder){
@@ -31,7 +33,6 @@ constructor(private api:ApiService,private router:Router,private fb:FormBuilder)
 ngOnInit(): void {
   this.api.getReturn(`${environment.BASE_API_URL}/comment/commentsByPostId/${this.postid}`).subscribe((data:any)=>{
     this.comments=data
-    console.log(this.comments);
   },(error)=>{
     console.log(error);
   })
@@ -50,6 +51,7 @@ const userData={
   postid:this.postid,
   content:formValues.content,
   parentCommentId:null
+ 
 }
 console.log(userData);
 const headers = new HttpHeaders().set("ResponseType","text")
@@ -64,27 +66,43 @@ this.api.postReturn(`${environment.BASE_API_URL}/comment/createComment`,userData
   this.errorMessage='Failed to create comment.Please try again..';
 })
   }
+  likeComment(commentid:number):void{
+    this.user=localStorage.getItem("user")
+    this.userId=JSON.parse(this.user).id;
+    const headers=new HttpHeaders().set("ResponseType","text")
+  
+      
+      this.api.postReturn(`${environment.BASE_API_URL}/like/likeComment/${commentid}/${this.userId}`,null,{headers}).subscribe(
+        (response)=>{
+          this.ngOnInit()
+          
+        },
+        (error)=>{
+          console.log('error liking comment',error);
+        }
+      )
+   
+      
+      this.api.postReturn(`${environment.BASE_API_URL}/like/unlikeComment/${commentid}/${this.userId}`,null,{headers}).subscribe(
+        (response:any)=>{
+          if(response){
+            this.ngOnInit()
+           
+          }
+        },
+        (error)=>{
+          console.log('error unliking comment',error);
+        }
+      )
+    }
+    editcomment() {
+      throw new Error('Method not implemented.');
+      }
+      deletecomment() {
+      throw new Error('Method not implemented.');
+      }
+      replycomment() {
+      throw new Error('Method not implemented.');
+      }
+  }
 
-  deleteComment(commentid:number){
-    this.api.deleteReturn(`${environment.BASE_API_URL}/comment/deleteComment/${this.commentid}`).subscribe(
-      (data)=>{
-        console.log('Comment deleted successfully',data);
-        this.loadComments();
-      },
-      (error)=>{
-        console.error('Error deleting comment',error);
-      }
-    )
-  }
-  loadComments():void {
-    this.api.getReturn(`${environment.BASE_API_URL}/comment/commentsByPostId/${this.postid}`).subscribe(
-      (data:any)=>{
-        this.comment=data;
-        console.log(this.comments);
-      },
-      (error)=>{
-        console.log(error);
-      }
-    )
-  }
-}

@@ -36,6 +36,11 @@ export const routes: Routes = [
     title:"Createblog | BlogApp"
     },
     {
+    path:"editblog/:blogId",
+    component:CreateblogComponent,
+    title:"Createblog | BlogApp"
+    },
+    {
         path:"community",
         component:CommunityComponent,
         title:"Community |BlogApp"
