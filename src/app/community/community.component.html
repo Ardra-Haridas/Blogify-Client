@@ -1,10 +1,44 @@
-@for(community of communityList;track community.id){
-    <div class="communitybox">
-        <div class="community">
-            <div class="communitydetails">
-                <h2 class="title">{{community.communityname}}</h2>
-            </div>
+@if(community){
+    <div class="box1">
+        <div class="profilecontainer">
+        <img class="profilepic" src="../../assets/community4.webp" alt="">
+        <h2>{{community.communityname}}</h2>
+        <p>Description:{{community.description}}</p>
+        <div class="join">
+            <ng-container >
+              <button class="joinbutton" (click)="joincommunity(community.communityid)">
+                @if (joinFlag) {
+                    Joined
+                }@else {
+                    Join
+                }
+            </button>
+            </ng-container>
+          </div>
+    </div>
     
-        </div>
     </div>
 }
+<div class="profile">
+        <div class="posts">
+    
+            @for (item of blogDetails; track $index) {
+                @if(item){
+                    <app-blogdetails [blogDetails]="item"></app-blogdetails>
+                }
+              
+            }
+         
+        </div>
+        
+        <div class="sidebar" [class.disabled]="!joinFlag">
+    
+            <div class="content">
+                <h2>Publish your passions, your way</h2>
+                <p>Create a unique and beautiful blog easily.</p>
+            </div>
+        <div class="sidebuttons">
+            <a  class="createbutton"(click)="createCommunityBlog()">Create</a>
+        </div>
+        </div>
+</div>

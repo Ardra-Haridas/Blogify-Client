@@ -13,6 +13,8 @@ export interface Blog {
 export interface Community{
     communityid:number,
     communityname:string,
+    description:string,
+    profilepic:string|null,
     membercount:number|null,
     created_at:string,
     modified_at:string

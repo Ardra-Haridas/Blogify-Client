@@ -87,13 +87,13 @@
     <a [routerLink]="'/contact'" class="button">Contact Us</a>
  
 </div>
+@for(community of communityList;track community.id){
 <div class="box">
-    <div class="head">
-<h3>Communities</h3>
-    </div>
-<a [routerLink]="'/community'">
-  <img src="../../../assets/community4.webp" name="Food Community">
+<a [routerLink]="'/community/'+community.communityid">
+  <img src="../../../assets/community4.webp">
 </a>
+<div class="desc" >{{community.communityname}}</div>
 </div>
+}
 </div>
 </div>

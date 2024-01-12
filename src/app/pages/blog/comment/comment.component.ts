@@ -7,6 +7,7 @@ import { error } from 'console';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
 import { response } from 'express';
+import { AnyTxtRecord } from 'dns';
 
 @Component({
   selector: 'app-comment',
@@ -28,9 +29,15 @@ errorMessage:string |any;
   user: string | any;
   userId: any;
 commentid: number|any;
+
+isEdit:boolean=false
+editCommentId:any
 constructor(private api:ApiService,private router:Router,private fb:FormBuilder){
 }
 ngOnInit(): void {
+  this.user=localStorage.getItem("user")
+    if(this.user)
+      this.userId=JSON.parse(this.user).id;
   this.api.getReturn(`${environment.BASE_API_URL}/comment/commentsByPostId/${this.postid}`).subscribe((data:any)=>{
     this.comments=data
   },(error)=>{
@@ -41,9 +48,7 @@ ngOnInit(): void {
   });
 }
   addComment():void {
-    this.user=localStorage.getItem("user")
-    if(this.user)
-      this.userId=JSON.parse(this.user).id;
+    
 
 const formValues=this.commentForm.getRawValue();
 const userData={
@@ -95,11 +100,49 @@ this.api.postReturn(`${environment.BASE_API_URL}/comment/createComment`,userData
         }
       )
     }
-    editcomment() {
-      throw new Error('Method not implemented.');
-      }
-      deletecomment() {
-      throw new Error('Method not implemented.');
+    editcomment(comment:any) {
+      this.isEdit=true
+      this.commentForm=this.fb.group({
+        content:[comment.content,Validators.required]
+      });
+      this.editCommentId=comment.commentid
+    }
+    onEdit(){
+      
+const formValues=this.commentForm.getRawValue();
+const userData={
+  userid:this.userId,
+  postid:this.postid,
+  content:formValues.content,
+  parentCommentId:null
+ 
+}
+const headers = new HttpHeaders().set("ResponseType","text")
+this.api.postReturn(`${environment.BASE_API_URL}/comment/update/${this.editCommentId}`,userData,{headers}).subscribe((data:any)=>{
+  console.log(data);
+  this.commentCreationSuccess=true;
+  this.ngOnInit()
+
+},
+(error)=>{
+  console.error('Error editing comment:',error);
+  this.errorMessage='Failed to edit comment.Please try again..';
+});
+
+    }
+      deletecomment(commentId:any):void {
+        const shouldDelete=window.confirm('Are you sure you want to delete this comment?');
+        if(shouldDelete){
+       this.api.deleteReturn(`${environment.BASE_API_URL}/comment/deleteComment/${commentId}`).subscribe(
+        (data)=>{
+          console.log('deleted Post Successfully',data)
+        },
+        (error)=>{
+          console.log('error deleting post',error)
+        }
+       )
+    
+        }
       }
       replycomment() {
       throw new Error('Method not implemented.');

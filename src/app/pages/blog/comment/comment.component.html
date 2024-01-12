@@ -7,22 +7,24 @@
                 <div class="cursor"  (click)="likeComment(comment.commentid)">
                             <i  class="fa-solid fa-heart" [ngClass]="comment.isLiked ? 'red' : ''" ></i>
                         </div>
-                        <div class="reply" (click)="replycomment()">
-                        <i class="fa-solid fa-reply"></i>
-                    </div >
-                    <div class="delete" (click)="deletecomment()">
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                    <div class="edit" (click)="editcomment()">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </div>
+                        <i class="fa-solid fa-reply" (click)="replycomment()"></i>
+                        {{comment.id}}
+                        @if (userId == comment.userid) {
+                            <i class="fa-solid fa-trash" (click)="deletecomment(comment.commentid)"></i>
+                            <i class="fa-regular fa-pen-to-square" (click)="editcomment(comment)"></i>
+                        }
+                   
               </div>
               
         }
    <div class="newcomment">
     <form [formGroup]="commentForm">
         <textarea type="text" placeholder="Add a comment" required formControlName="content"></textarea>
-        <button (click)="addComment()" type="submit">Add Comment</button>
+        @if (!isEdit) {
+            <button (click)="addComment()" type="submit">Add Comment</button>
+        }@else {
+            <button (click)="onEdit()" type="submit">Edit Comment</button>
+        }
     </form>
     </div>
 </div>

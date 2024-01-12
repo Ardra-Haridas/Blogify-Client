@@ -6,13 +6,14 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 import { HttpHeaders } from '@angular/common/http';
 import { error } from 'console';
+import { CommentComponent } from "../../pages/blog/comment/comment.component";
 
 @Component({
-  selector: 'app-blogdetails',
-  standalone: true,
-  imports: [CommonModule,RouterModule],
-  templateUrl: './blogdetails.component.html',
-  styleUrl: './blogdetails.component.scss'
+    selector: 'app-blogdetails',
+    standalone: true,
+    templateUrl: './blogdetails.component.html',
+    styleUrl: './blogdetails.component.scss',
+    imports: [CommonModule, RouterModule, CommentComponent]
 })
 export class BlogComponent implements OnInit{
 
@@ -24,6 +25,7 @@ export class BlogComponent implements OnInit{
   user:string|any
   userId: number|any;
   likeFlag:boolean|any = false
+  showComments: boolean = false;
   constructor(private api:ApiService,private router:Router){}
   ngOnInit(): void {
     this.blogId=this.blogDetails.id
@@ -93,4 +95,7 @@ export class BlogComponent implements OnInit{
     this.router.navigate([`/editblog/${this.blogDetails.id}`])
 
   }
+  toggleComments():void{
+    this.showComments=!this.showComments;
+   }
 }
