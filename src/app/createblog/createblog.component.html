@@ -11,8 +11,15 @@
     </div>
     <form [formGroup]="blogForm" id="create" class="creategrp">
     <input type="text"class="title" name="title" placeholder="Title" required formControlName="title">
+    
     <textarea type="text" class="content" name="content" placeholder="content" required formControlName="content"></textarea>
-    <input type="image" name="image" placeholder="image" required formControlName="image">
+    <div class="image">
+        <img class="blogpic" [src]="blogImage" alt="">
+        <label  class="plus">+
+            <input type="file" name="" id="" style="display: none;" (change)="selectImage($event)">
+        </label>
+    </div>
+   
     @if (blogId!=null) {
         <button (click)="onEdit()" type="submit" class="subbut">Edit</button>
     }@else {

@@ -1,14 +1,14 @@
 <div class="nav">
     <div class="container">
+        <!-- <div class="left">
+           <img src="../../../assets/logo.png" alt="">
+        </div> -->
         <div class="left">
-            <h2>Logo</h2>
-        </div>
-        <div class="center">
-            <h1>BlogApplication</h1>
+            <span>Blogify</span>
         </div>
         <div class="right">
             @if(username){
-                <img class="profileicon"  src="../../../assets/user1.webp" alt="user2">
+                <img class="profileicon"  [src]="userProfile" alt="user2">
            
 
                 <p (click)="profileDetails(userId)">{{username}}</p>

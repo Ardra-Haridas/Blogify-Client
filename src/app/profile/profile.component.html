@@ -2,8 +2,10 @@
 <div class="box1">
     <div class="profilecontainer">
         <div class="image">
-            <img class="profilepic" src="../../assets/user1.webp" alt="">
-            <div  class="plus">+</div>
+            <img class="profilepic" [src]="profilePic" alt="">
+            <label  class="plus">+
+                <input type="file" name="" id="" style="display: none;" (change)="uploadImage($event)">
+            </label>
         </div>
     
     <h2>{{users.name}}</h2>

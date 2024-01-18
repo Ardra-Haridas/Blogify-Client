@@ -8,6 +8,7 @@ import { Blog, User } from '../models/data-types';
 import { Router, RouterModule } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { BlogComponent } from './blogdetails/blogdetails.component';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile',
@@ -26,19 +27,27 @@ blogDetails:Blog[]|any=[]
 users:User[] |any;
 user:string|any
   likeFlag:boolean|any = false
-constructor(private api:ApiService,private activatedRoute:ActivatedRoute,private router:Router){}
+  fileName:any
+  profilePic:any
+  fileImage:any
+  userDetails:any
+constructor(private dataService: DataService,private api:ApiService,private activatedRoute:ActivatedRoute,private router:Router){}
 ngOnInit(): void {
   this.activatedRoute.params.subscribe(s => {
     this.userid=s["id"]
   });
+  this.getUserDetails()
+}
+getUserDetails(){
   this.api.getReturn(`${environment.BASE_API_URL}/auth/userbyId/${this.userid}`).subscribe((data)=>{
     this.users=data
-    console.log(this.users);
+    this.profilePic=`${environment.BASE_API_URL}/auth/getImage/${this.userid}`
+    console.log(this.profilePic);
+    
     this.fetchUserBlogPost()
   },(error)=>{
     console.log(error);
-  }
-  );
+  });
 }
 fetchUserBlogPost() {
   if(typeof localStorage !== "undefined" && localStorage.getItem("user")){
@@ -87,6 +96,28 @@ likepost(blogId:number):void{
   )
   }
   
+}
+uploadImage(event:any) {
+
+  this.fileImage = event.target.files[0];
+
+  if (this.fileImage) {
+      const formData = new FormData();
+      
+      formData.append("imageFile", this.fileImage);
+
+      const headers = new HttpHeaders().set("ResponseType","text")
+      this.api.postReturn(`${environment.BASE_API_URL}/auth/uploadImage/${this.userid}`, formData,{headers}).subscribe((data)=>{
+        console.log(data);
+        const reader = new FileReader();
+        reader.onload = e => this.profilePic = reader.result;
+        reader.readAsDataURL(this.fileImage)
+        this.dataService.notifyOther(this.fileImage)
+      },(error)=>{
+        console.log(error);
+      })
+      
+  }
 }
 
 

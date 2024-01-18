@@ -21,15 +21,16 @@
     cursor: pointer;
 }
 .left{
-    padding-left: 20px;
+    padding: 10px;
+    font-size: 50px;
     flex: 1;
-    font-style: italic;
+    font-family: 'Cookie', cursive;
 }
-.center{
-    flex: 1;
-    cursor: pointer;
-    text-align: center;
-}
+// .center{
+//     flex: 1;
+//     cursor: pointer;
+//     text-align: center;
+// }
 .right{
     cursor: pointer;
     flex: 1;

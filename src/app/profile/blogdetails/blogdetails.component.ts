@@ -6,6 +6,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 import { HttpHeaders } from '@angular/common/http';
 import { error } from 'console';
+import { DataService } from '../../data.service';
 import { CommentComponent } from "../../pages/blog/comment/comment.component";
 
 @Component({
@@ -26,12 +27,14 @@ export class BlogComponent implements OnInit{
   userId: number|any;
   likeFlag:boolean|any = false
   showComments: boolean = false;
-  constructor(private api:ApiService,private router:Router){}
+  userProfile:any
+  constructor(private api:ApiService,private router:Router,private dataService:DataService){}
   ngOnInit(): void {
     this.blogId=this.blogDetails.id
     this.api.getReturn(`${environment.BASE_API_URL}/post/findbyId/${this.blogId}`).subscribe((data)=>{
       this.blogDetails=data
       console.log(this.blogDetails);
+      this.userProfile =  `${environment.BASE_API_URL}/auth/getImage/${this.blogDetails.user.id}`
       this.user=localStorage.getItem("user")
       this.userId=JSON.parse(this.user).id;
       this.api.getReturn(`${environment.BASE_API_URL}/like/likebyuser/${this.userId}/${this.blogId}`).subscribe((data)=>{

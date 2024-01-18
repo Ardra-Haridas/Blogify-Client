@@ -4,7 +4,7 @@
     <div class="blog">
         <div class="top">
             <div class="left">
-                <img class="profileicon"  src="../../../assets/user2.jpeg" alt="user2">
+                <img class="profileicon"  [src]="userProfile" alt="user2">
                 <div class="blogdetails">
                     <div class="blogInfo">
                         <span>{{blogDetails.title}}</span>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="content">
-            <img class="blogimage" src="../../../assets/blog1.jpeg" alt="">
+            <img class="blogimage" [src]="'http://localhost:8080/api/v1/post/getImage/'+blogDetails.id" alt="">
             <p class="para">{{blogDetails.content}}</p>
             <div class="flex">
                 <div class="cursor2" (click)="toggleComments()">

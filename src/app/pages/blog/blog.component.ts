@@ -24,6 +24,7 @@ export class BlogComponent implements OnInit{
   userId: number|any;
   likeFlag:boolean|any = false
 showComments: boolean = false;
+userProfile:any
   constructor(private api:ApiService,private activatedRoute: ActivatedRoute){}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
@@ -31,6 +32,7 @@ showComments: boolean = false;
     });
     this.api.getReturn(`${environment.BASE_API_URL}/post/findbyId/${this.blogId}`).subscribe((data)=>{
       this.blogDetails=data
+      this.userProfile =  `${environment.BASE_API_URL}/auth/getImage/${this.blogDetails.user.id}`
       console.log(this.blogDetails);
       this.user=localStorage.getItem("user")
       this.userId=JSON.parse(this.user).id;
